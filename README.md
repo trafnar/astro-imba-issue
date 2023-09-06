@@ -1,47 +1,8 @@
-# Astro Starter Kit: Minimal
-
-```
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- I installed the Imba vite plugin and enabled it in astro.config.mjs
+- I created an Imba file that defines a web component in src/imba-component.imba
+- I included that Imba file in an astro component (this is necessary to include it in an mdx file) inside src/components/ImbaComponentWrapper.astro
+- I included that astro component in two places:
+  - An mdx page, defined in src/pages/test.mdx
+  - A blog post mdx file, created using astro "content collections", the mdx file is in src/content/posts/test-post.mdx
+- Running `npm run astro dev` everything works, the page and the post both display the imba component correctly
+- Running `npm run astro build` then serving the dist/ folder with `npx http-server dist` reveals the problem: The component will have no CSS if viewed in the MDX _post_. The javascript counter functionality will work, but the styles are not there. The component renders correctly on the mdx _page_ however.
