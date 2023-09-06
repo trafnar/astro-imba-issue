@@ -1,3 +1,10 @@
+To reproduce:
+
+1. Try running `npm run dev` and see that both the mdx page and mdx post have a working/styled component in them.
+2. Try running `npm run build` then `npm run preview` and see that the mdx post now has no styles.
+
+Issue Summary:
+
 - I installed the Imba vite plugin and enabled it in astro.config.mjs
 - I created an Imba file that defines a web component in src/imba-component.imba
 - I included that Imba file in an astro component (this is necessary to include it in an mdx file) inside src/components/ImbaComponentWrapper.astro
