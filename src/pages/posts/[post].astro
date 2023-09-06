@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  return await (
+    await getCollection("posts")
+  ).map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// import HandyGraphComponent from "../../components/HandyGraphComponent.astro";
+---
+
+
+<h1>{post.data.title}</h1>
+<Content />

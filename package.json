@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.0.9"
+    "@astrojs/mdx": "^1.0.1",
+    "astro": "^3.0.9",
+    "vite-plugin-imba": "^0.10.3"
   }
 }
